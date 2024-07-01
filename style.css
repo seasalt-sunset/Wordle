@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(8, 0, 0);
+    height: 100vh;
+}
+.parent {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+    
+}
+input{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 3rem;
+}
+button {
+display: none;
+}
