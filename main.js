@@ -14,15 +14,19 @@ document.addEventListener("keydown", function(event){
         }
     }
 );
-function onInput(event) {
-    if(event.inputType === 'deleteContentBackward') {
-        return;
-    } else {
-        if(event.target.nextElementSibling)
-            event.target.nextElementSibling.focus();
+function onInput(e) {
+
+    if (/^[a-zA-Z]+$/.test(e.target.value)){
+        if(e.target.nextElementSibling) {
+            e.target.nextElementSibling.focus();
     }
-    event.target.value = event.target.value.slice(-1);
+    e.target.value = e.target.value.slice(-1);
+} else {
+    e.target.value = "";
+
+};
 }
+
 function onSubmit(event, wordIndex) {
     event.preventDefault();
  
@@ -50,14 +54,10 @@ nextLine[i].disabled = false;
 
 window.onload = () => {
      wordInputArray[0][0].focus();
+     fetch ("words.json")
+    .then((response) => response.json())
+    .then ((data) => {
+    parola = data[Math.floor(Math.random() * 5)]
+    console.log("p",parola)
+})
 }
-
-inputword = wordInputArray ()
-/*
-if () {
-    document.getElementById('input1', 'input2', 'input3', 'input4', 'input5').removeAttribute('disabled');
-}
-  
-  
-
-*/
